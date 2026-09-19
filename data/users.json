@@ -1,0 +1,35 @@
+{
+  "guest_vceqad2": {
+    "id": "guest_vceqad2",
+    "username": "guest_guest_vceqad2",
+    "nickname": "BudiKeirin",
+    "avatar": "SPRINTER",
+    "friendCode": "FGR-8320",
+    "isGuest": true,
+    "stats": {
+      "matchesPlayed": 0,
+      "matchesWon": 0,
+      "winStreak": 0,
+      "bestStreak": 0,
+      "checkpointsWon": 0
+    },
+    "createdAt": "2026-09-14T12:42:11.377Z"
+  },
+  "user_sw0pooh": {
+    "id": "user_sw0pooh",
+    "username": "aliefixie",
+    "password": "secretpassword",
+    "nickname": "Alie Speedster",
+    "avatar": "CLIMBER",
+    "friendCode": "FGR-1315",
+    "isGuest": false,
+    "stats": {
+      "matchesPlayed": 0,
+      "matchesWon": 0,
+      "winStreak": 0,
+      "bestStreak": 0,
+      "checkpointsWon": 0
+    },
+    "createdAt": "2026-09-14T12:42:13.908Z"
+  }
+}
