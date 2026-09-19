@@ -532,39 +532,6 @@ const StylizedVectorRider: React.FC<{
                 d={`M ${frontHubX - 4} ${frontHubY + 18} Q ${frontHubX - 16} ${frontHubY + 12} ${frontHubX - 26} ${frontHubY + 8}`} 
                 fill="none" 
                 stroke="rgba(186, 230, 253, 0.65)" 
-                strokeWidth="2.8" 
-                strokeLinecap="round" 
-              />
-              
-              {/* Fine Vapor Water Plume Cloud behind rear tire */}
-              <ellipse 
-                cx={rearHubX - 34} 
-                cy={rearHubY + 8} 
-                rx="24" 
-                ry="12" 
-                fill="rgba(56, 189, 248, 0.18)" 
-              />
-              
-              {/* Sprayed Flying Droplets (Wide Trajectory Dispersal) */}
-              <circle cx={rearHubX - 14} cy={rearHubY + 14} r="2.2" fill="#7dd3fc" opacity="0.95" />
-              <circle cx={rearHubX - 24} cy={rearHubY + 8} r="2.6" fill="#38bdf8" opacity="0.9" />
-              <circle cx={rearHubX - 35} cy={rearHubY - 2} r="3" fill="#bae6fd" opacity="0.85" />
-              <circle cx={rearHubX - 46} cy={rearHubY - 10} r="2.4" fill="#e0f2fe" opacity="0.75" />
-              <circle cx={rearHubX - 56} cy={rearHubY + 2} r="2.2" fill="#7dd3fc" opacity="0.7" />
-              <circle cx={rearHubX - 65} cy={rearHubY + 14} r="2" fill="#38bdf8" opacity="0.6" />
-
-              {/* Front Wheel Water Slicing Spray (Forward & Rearward Deflection) */}
-              <path 
-                d={`M ${frontHubX + 8} ${frontHubY + 19} Q ${frontHubX + 22} ${frontHubY + 18} ${frontHubX + 32} ${frontHubY + 14}`} 
-                fill="none" 
-                stroke="rgba(56, 189, 248, 0.8)" 
-                strokeWidth="2.8" 
-                strokeLinecap="round" 
-              />
-              <path 
-                d={`M ${frontHubX - 4} ${frontHubY + 18} Q ${frontHubX - 16} ${frontHubY + 12} ${frontHubX - 26} ${frontHubY + 8}`} 
-                fill="none" 
-                stroke="rgba(186, 230, 253, 0.65)" 
                 strokeWidth="2.2" 
                 strokeLinecap="round" 
                 strokeDasharray="4 2"
@@ -1253,13 +1220,13 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
       setP2DisplayScore(p2Base);
 
       if (event.category === 'TANJAKAN') {
-        triggerComicFx('CLIMB ATTACK! â›°ï¸ ðŸ˜¤', 50, 30, '#f59e0b');
+        triggerComicFx('CLIMB ATTACK! ⛰️ 😤', 50, 30, '#f59e0b');
       } else if (event.category === 'TURUNAN') {
-        triggerComicFx('SUPER TUCK! âš¡ ðŸ’¨', 50, 30, '#06b6d4');
+        triggerComicFx('SUPER TUCK! ⚡ 💨', 50, 30, '#06b6d4');
       } else if (event.category === 'TIKUNGAN') {
-        triggerComicFx('APEX DRIFT! ðŸŒ€ ðŸ”¥', 50, 30, '#ec4899');
+        triggerComicFx('APEX DRIFT! 🌀 🔥', 50, 30, '#ec4899');
       } else {
-        triggerComicFx('GO! ðŸ âš¡', 50, 30, '#f59e0b');
+        triggerComicFx('GO! 🏁 ⚡', 50, 30, '#f59e0b');
       }
 
       let launchText = `Ronde ${currentRound} dimulai di medan ${meta.label}!`;
@@ -1305,8 +1272,8 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
         setExtraDisplayScores(prev => ({ ...prev, [r.playerKey]: r.base + r.bike }));
       });
 
-      triggerComicFx('GEAR POWER! âš™ï¸', 50, 35, '#38bdf8');
-      triggerComicFx('CADENCE! âš¡', 65, 65, '#ff1e56');
+      triggerComicFx('GEAR POWER! ⚙️', 50, 35, '#38bdf8');
+      triggerComicFx('CADENCE! ⚡', 65, 65, '#ff1e56');
 
       const hasActions = p1Actions.length > 0 || p2Actions.length > 0 || extraRacers.some(r => r.actions.length > 0);
       const accelText = totalRacers > 2
@@ -1332,15 +1299,15 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
       sound.playEnergyZap();
       if (p1Actions.length > 0) {
         setActiveActionP1(p1Actions[0]);
-        triggerComicFx(`${p1Actions[0].name.toUpperCase()}! âš¡`, 30, 25, '#38bdf8');
+        triggerComicFx(`${p1Actions[0].name.toUpperCase()}! ⚡`, 30, 25, '#38bdf8');
       }
       if (p2Actions.length > 0) {
         setActiveActionP2(p2Actions[0]);
-        triggerComicFx(`${p2Actions[0].name.toUpperCase()}! ðŸ”¥`, 70, 25, '#f43f5e');
+        triggerComicFx(`${p2Actions[0].name.toUpperCase()}! 🔥`, 70, 25, '#f43f5e');
       }
       extraRacers.forEach((r, idx) => {
         if (r.actions.length > 0) {
-          triggerComicFx(`${r.actions[0].name.toUpperCase()}! ðŸ’¥`, 50 + (idx === 0 ? -15 : 15), 40, idx === 0 ? '#f59e0b' : '#10b981');
+          triggerComicFx(`${r.actions[0].name.toUpperCase()}! 💥`, 50 + (idx === 0 ? -15 : 15), 40, idx === 0 ? '#f59e0b' : '#10b981');
         }
       });
 
@@ -1389,17 +1356,17 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
       setScreenShake(true);
 
       if (event.category === 'TANJAKAN') {
-        triggerComicFx('ðŸ˜¤ HUFF-PUFF! (Napas Berat)', 50, 20, '#f59e0b');
-        triggerComicFx('1200 WATTS CLIMB! â›°ï¸', 50, 75, '#ef4444');
+        triggerComicFx('😤 HUFF-PUFF! (Napas Berat)', 50, 20, '#f59e0b');
+        triggerComicFx('1200 WATTS CLIMB! ⛰️', 50, 75, '#ef4444');
       } else if (event.category === 'TURUNAN') {
-        triggerComicFx('ðŸ’¨ WHOOSH! (Deru Angin)', 50, 20, '#06b6d4');
-        triggerComicFx('85 KM/H DESCENT! âš¡', 50, 75, '#38bdf8');
+        triggerComicFx('💨 WHOOSH! (Deru Angin)', 50, 20, '#06b6d4');
+        triggerComicFx('85 KM/H DESCENT! ⚡', 50, 75, '#38bdf8');
       } else if (event.category === 'TIKUNGAN') {
-        triggerComicFx('ðŸ”¥ SQUEAL! (Grip Ban)', 50, 20, '#ec4899');
-        triggerComicFx('HARD LEAN APEX! ðŸŒ€', 50, 75, '#f43f5e');
+        triggerComicFx('🔥 SQUEAL! (Grip Ban)', 50, 20, '#ec4899');
+        triggerComicFx('HARD LEAN APEX! 🌀', 50, 75, '#f43f5e');
       } else {
-        triggerComicFx('âš¡ PACELINE! (Aero Hum)', 50, 20, '#ffb703');
-        triggerComicFx('MAX CADENCE SPRINT! ðŸ”¥', 50, 75, '#ef4444');
+        triggerComicFx('⚡ PACELINE! (Aero Hum)', 50, 20, '#ffb703');
+        triggerComicFx('MAX CADENCE SPRINT! 🔥', 50, 75, '#ef4444');
       }
 
       const burstText = event.category === 'TANJAKAN'
@@ -1585,7 +1552,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
               {event.category === 'DATAR' && <MoveRight className="w-3.5 h-3.5 text-purple-300" />}
               {event.category === 'TIKUNGAN' && <ArrowDownRight className="w-3.5 h-3.5 text-purple-300" />}
               <span className="tracking-wide uppercase">
-                {event.category === 'TANJAKAN' ? 'â›°ï¸ TANJAKAN (+8%)' : event.category === 'TURUNAN' ? 'â†˜ TURUNAN (-12%)' : `2D SPRINT â€¢ ${meta.label}`}
+                {event.category === 'TANJAKAN' ? '⛰️ TANJAKAN (+8%)' : event.category === 'TURUNAN' ? '↘ TURUNAN (-12%)' : `2D SPRINT • ${meta.label}`}
               </span>
             </div>
 
@@ -1683,7 +1650,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
             />
           </div>
           <div className="shrink-0 text-amber-400 text-sm sm:text-base drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]">
-            ðŸ
+            🏁
           </div>
         </div>
       </div>
@@ -1720,36 +1687,36 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
                 >
                   {/* Loop Copy 1 */}
                   <div className="flex shrink-0 items-center gap-4 pr-12 text-[11px] sm:text-xs font-mono font-black text-rose-100 uppercase tracking-widest">
-                    <span className="text-yellow-400">âš ï¸</span>
+                    <span className="text-yellow-400">⚠️</span>
                     <span className="text-white font-black">{hazard.title}</span>
-                    <span className="text-rose-400">â€¢</span>
+                    <span className="text-rose-400">•</span>
                     <span className="text-rose-200 normal-case font-medium">{hazard.description}</span>
-                    <span className="text-rose-400">â€¢</span>
+                    <span className="text-rose-400">•</span>
                     <span className="text-yellow-300 font-black">DAMPAK: {hazard.effect.pointDelta > 0 ? `+${hazard.effect.pointDelta}` : hazard.effect.pointDelta} POWER</span>
                     {hazard.effect.description && (
                       <>
-                        <span className="text-rose-400">â€¢</span>
+                        <span className="text-rose-400">•</span>
                         <span className="text-amber-200 normal-case">{hazard.effect.description}</span>
                       </>
                     )}
-                    <span className="text-yellow-400">âš ï¸</span>
+                    <span className="text-yellow-400">⚠️</span>
                   </div>
 
                   {/* Loop Copy 2 for infinite seamless stream */}
                   <div className="flex shrink-0 items-center gap-4 pr-12 text-[11px] sm:text-xs font-mono font-black text-rose-100 uppercase tracking-widest">
-                    <span className="text-yellow-400">âš ï¸</span>
+                    <span className="text-yellow-400">⚠️</span>
                     <span className="text-white font-black">{hazard.title}</span>
-                    <span className="text-rose-400">â€¢</span>
+                    <span className="text-rose-400">•</span>
                     <span className="text-rose-200 normal-case font-medium">{hazard.description}</span>
-                    <span className="text-rose-400">â€¢</span>
+                    <span className="text-rose-400">•</span>
                     <span className="text-yellow-300 font-black">DAMPAK: {hazard.effect.pointDelta > 0 ? `+${hazard.effect.pointDelta}` : hazard.effect.pointDelta} POWER</span>
                     {hazard.effect.description && (
                       <>
-                        <span className="text-rose-400">â€¢</span>
+                        <span className="text-rose-400">•</span>
                         <span className="text-amber-200 normal-case">{hazard.effect.description}</span>
                       </>
                     )}
-                    <span className="text-yellow-400">âš ï¸</span>
+                    <span className="text-yellow-400">⚠️</span>
                   </div>
                 </motion.div>
               </div>
@@ -1759,7 +1726,230 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
       </AnimatePresence>
 
         {/* =========================================================
-            STAGE ARENA:                   }
+            STAGE ARENA: THEMED BACKGROUNDS ACCORDING TO TERRAIN
+           ========================================================= */}
+        <div className={`relative flex-1 flex flex-col justify-end w-full overflow-hidden transition-all duration-300 ${
+          isInterval ? 'scale-[1.03]' : isSprint ? 'scale-[1.01]' : 'scale-100'
+        } ${screenShake ? 'brightness-110' : ''}`}>
+          
+          {/* Deep Night Atmosphere Sky */}
+          <div className={`absolute inset-0 pointer-events-none transition-colors duration-1000 ${
+            event.category === 'TANJAKAN' 
+              ? 'bg-gradient-to-b from-[#090b16] via-[#121024] to-[#1c1836]'
+              : event.category === 'TURUNAN'
+              ? 'bg-gradient-to-b from-[#050b18] via-[#09152b] to-[#10243e]'
+              : 'bg-gradient-to-b from-[#080b18] via-[#10142a] to-[#181a38]'
+          }`} />
+
+          {/* Distant Stars in Night Sky */}
+          <div className="absolute inset-0 pointer-events-none opacity-40">
+            {[
+              { top: '15%', left: '10%' }, { top: '25%', left: '30%' }, { top: '10%', left: '55%' },
+              { top: '20%', left: '75%' }, { top: '12%', left: '90%' }, { top: '35%', left: '45%' }
+            ].map((star, idx) => (
+              <div 
+                key={idx} 
+                className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+                style={{ top: star.top, left: star.left, animationDelay: `${idx * 0.4}s` }}
+              />
+            ))}
+          </div>
+
+          {/* =========================================================
+              HIGH-SPEED KINETIC WIND SPEED STREAKS (GPU HARDWARE ACCELERATED)
+             ========================================================= */}
+          <div className="absolute inset-0 pointer-events-none z-12 overflow-hidden opacity-70">
+            {[
+              { top: '20%', width: '220px', duration: 0.6, delay: 0 },
+              { top: '35%', width: '280px', duration: 0.5, delay: 0.15 },
+              { top: '55%', width: '240px', duration: 0.55, delay: 0.3 },
+              { top: '75%', width: '260px', duration: 0.48, delay: 0.45 }
+            ].map((streak, sIdx) => {
+              const speedDuration = (streak.duration / (isInterval ? 1.6 : isSprint ? 1.3 : 1.0));
+              return (
+                <div
+                  key={sIdx}
+                  className="absolute h-0.5 rounded-full"
+                  style={{ 
+                    top: streak.top, 
+                    width: streak.width,
+                    left: 0,
+                    animationName: 'windStreakAnim',
+                    animationDuration: `${speedDuration}s`,
+                    animationTimingFunction: 'linear',
+                    animationIterationCount: 'infinite',
+                    animationDelay: `${streak.delay}s`,
+                    willChange: 'transform',
+                    background: event.category === 'TURUNAN'
+                      ? 'linear-gradient(90deg, transparent, rgba(0,240,255,0.85), transparent)'
+                      : event.category === 'TANJAKAN'
+                      ? 'linear-gradient(90deg, transparent, rgba(251,191,36,0.85), transparent)'
+                      : 'linear-gradient(90deg, transparent, rgba(255,255,255,0.85), transparent)'
+                  }}
+                />
+              );
+            })}
+            <style>{`
+              @keyframes windStreakAnim {
+                0% { transform: translateX(110vw); }
+                100% { transform: translateX(-40vw); }
+              }
+            `}</style>
+          </div>
+
+          {/* =========================================================
+              NATURAL HEAVY RAIN EVENT SYSTEM (DYNAMIC DOWNPOUR, LIGHTNING & SPLASHES)
+             ========================================================= */}
+          {isRainHazard && (
+            <div className="absolute inset-0 pointer-events-none z-15 overflow-hidden">
+              {/* 1. Storm Sky Dark Overcast & Ambient Fog Atmosphere */}
+              <div className="absolute inset-0 bg-slate-950/45 mix-blend-multiply transition-opacity duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-b from-sky-950/35 via-transparent to-slate-900/50" />
+
+              {/* 2. Distant Thunderstorm Lightning Flash Flicker */}
+              <div 
+                className="absolute inset-0 bg-cyan-100/15 pointer-events-none"
+                style={{
+                  animationName: 'stormLightningAnim',
+                  animationDuration: '5.2s',
+                  animationTimingFunction: 'ease-in-out',
+                  animationIterationCount: 'infinite'
+                }}
+              />
+
+              {/* 3. Wind-Slanted Fast Falling Rain Needles (Multi-layer Parallax) */}
+              <div className="absolute inset-0 overflow-hidden">
+                {STABLE_RAIN_DROPS.map((drop) => {
+                  const speedMult = isInterval ? 1.4 : isSprint ? 1.2 : 1.0;
+                  const duration = drop.duration / speedMult;
+                  return (
+                    <div
+                      key={`rain-drop-${drop.id}`}
+                      className="absolute rounded-full"
+                      style={{
+                        left: `${drop.left}%`,
+                        top: `${drop.top}%`,
+                        height: `${drop.length}px`,
+                        width: `${drop.thickness}px`,
+                        opacity: drop.opacity,
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(186,230,253,0.85), rgba(56,189,248,0.95))',
+                        animationName: 'naturalRainFall',
+                        animationDuration: `${duration}s`,
+                        animationTimingFunction: 'linear',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${drop.delay}s`,
+                        willChange: 'transform'
+                      }}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* 4. Wet Road Asphalt Ripple Rings & Splash Impact Droplets */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {STABLE_RAIN_SPLASHES.map((splash) => (
+                  <div
+                    key={`rain-splash-${splash.id}`}
+                    className="absolute flex items-center justify-center pointer-events-none"
+                    style={{
+                      left: `${splash.left}%`,
+                      top: `${splash.topPercent}%`,
+                      width: '24px',
+                      height: '10px'
+                    }}
+                  >
+                    {/* Splash expanding water ripple ring */}
+                    <div
+                      className="absolute rounded-full border border-sky-300/80"
+                      style={{
+                        width: '18px',
+                        height: '7px',
+                        animationName: 'rainSplashRing',
+                        animationDuration: `${splash.duration}s`,
+                        animationTimingFunction: 'ease-out',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${splash.delay}s`,
+                        transform: `scale(${splash.scale})`,
+                        willChange: 'transform, opacity'
+                      }}
+                    />
+                    {/* Splash bouncing water droplet beads */}
+                    <div
+                      className="absolute w-1.5 h-1.5 rounded-full bg-cyan-200"
+                      style={{
+                        animationName: 'rainSplashDroplet',
+                        animationDuration: `${splash.duration}s`,
+                        animationTimingFunction: 'ease-out',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${splash.delay}s`,
+                        willChange: 'transform, opacity'
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* 5. Wet Asphalt Mirror Gloss & Shimmer Overlay */}
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-sky-400/10 via-sky-500/5 to-transparent pointer-events-none" />
+
+              {/* 6. Rain Fog Mist Drift along Road Surface */}
+              <div 
+                className="absolute inset-x-0 bottom-2 h-14 bg-gradient-to-r from-transparent via-sky-200/15 to-transparent blur-sm pointer-events-none"
+                style={{
+                  animationName: 'rainMistDrift',
+                  animationDuration: '3.6s',
+                  animationTimingFunction: 'linear',
+                  animationIterationCount: 'infinite'
+                }}
+              />
+
+              {/* Rain & Storm CSS Keyframes */}
+              <style>{`
+                @keyframes naturalRainFall {
+                  0% {
+                    transform: translate3d(0, -60px, 0) rotate(-20deg);
+                    opacity: 0;
+                  }
+                  15% {
+                    opacity: 0.9;
+                  }
+                  85% {
+                    opacity: 0.9;
+                  }
+                  100% {
+                    transform: translate3d(-18vw, 115vh, 0) rotate(-20deg);
+                    opacity: 0.25;
+                  }
+                }
+
+                @keyframes rainSplashRing {
+                  0% {
+                    transform: scale(0.2);
+                    opacity: 0.95;
+                  }
+                  60% {
+                    transform: scale(1.4);
+                    opacity: 0.5;
+                  }
+                  100% {
+                    transform: scale(2.2);
+                    opacity: 0;
+                  }
+                }
+
+                @keyframes rainSplashDroplet {
+                  0% {
+                    transform: translate3d(0, 0, 0) scale(0.6);
+                    opacity: 1;
+                  }
+                  45% {
+                    transform: translate3d(-8px, -14px, 0) scale(1);
+                    opacity: 0.85;
+                  }
+                  100% {
+                    transform: translate3d(-16px, -2px, 0) scale(0.2);
+                    opacity: 0;
+                  }
                 }
 
                 @keyframes stormLightningAnim {
@@ -1985,14 +2175,14 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
                     event.category === 'TURUNAN' ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' :
                     'bg-purple-500/20 text-purple-300 border border-purple-500/50'
                   }`}>
-                    {event.category === 'TANJAKAN' ? 'â›°ï¸ TANJAKAN' : event.category === 'TURUNAN' ? 'â†˜ TURUNAN' : 'âš¡ 2D SPRINT'}
+                    {event.category === 'TANJAKAN' ? '⛰️ TANJAKAN' : event.category === 'TURUNAN' ? '↘ TURUNAN' : '⚡ 2D SPRINT'}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs sm:text-sm font-black text-white truncate flex items-center gap-1.5">
                       <span>{event.name}</span>
                       {hazard && (
                         <span className="text-[9px] bg-red-950/90 text-rose-300 border border-red-500/70 px-1.5 py-0.5 rounded font-mono font-bold">
-                          âš ï¸ {hazard.title}
+                          ⚠️ {hazard.title}
                         </span>
                       )}
                     </div>
@@ -2001,7 +2191,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
                     </p>
                   </div>
                   <span className="text-[8px] sm:text-[9px] font-mono text-zinc-400 shrink-0 bg-zinc-800/80 px-1.5 py-0.5 rounded border border-zinc-700/50">
-                    âœ•
+                    ✕
                   </span>
                 </div>
               </motion.div>
@@ -2064,7 +2254,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
                   className="absolute top-4 left-4 sm:left-6 z-15 pointer-events-none flex items-center gap-2 bg-amber-950/85 border border-amber-400/70 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.5)]"
                 >
                   <span className="text-amber-400 font-mono font-black text-[9px] sm:text-xs tracking-wider flex items-center gap-1.5 animate-pulse">
-                    <span className="text-sm">â–²â–²</span> ELEVASI +8.5% â€¢ TANJAKAN TERJAL â€¢ HIGH TORQUE
+                    <span className="text-sm">▲▲</span> ELEVASI +8.5% • TANJAKAN TERJAL • HIGH TORQUE
                   </span>
                 </motion.div>
               )}
@@ -2078,7 +2268,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
                   className="absolute top-4 left-4 sm:left-6 z-15 pointer-events-none flex items-center gap-2 bg-cyan-950/85 border border-cyan-400/70 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.5)]"
                 >
                   <span className="text-cyan-400 font-mono font-black text-[9px] sm:text-xs tracking-wider flex items-center gap-1.5 animate-pulse">
-                    <span className="text-sm">â–¼â–¼</span> GRADIENT -12.0% â€¢ TURUNAN CEPAT â€¢ SUPER TUCK
+                    <span className="text-sm">▼▼</span> GRADIENT -12.0% • TURUNAN CEPAT • SUPER TUCK
                   </span>
                 </motion.div>
               )}
@@ -2175,7 +2365,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
                 >
                   {Array.from({ length: 6 }).map((_, sIdx) => (
                     <span key={`l-sten-${racer.playerKey}-${sIdx}`} className="mr-36 sm:mr-52 shrink-0">
-                      LANE {idx + 1} â€¢ {racer.player.name.toUpperCase()} ({stencilLabel}) &gt;&gt;
+                      LANE {idx + 1} • {racer.player.name.toUpperCase()} ({stencilLabel}) &gt;&gt;
                     </span>
                   ))}
                 </div>
@@ -2189,7 +2379,154 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
             />
 
             {/* =========================================================
-                FULL-TRACK DYNAMIC WET ASPHALT WA                        willChange: 'transform, opacity'
+                FULL-TRACK DYNAMIC WET ASPHALT WATER SPRAY SYSTEM (RAIN HAZARD)
+               ========================================================= */}
+            {isRainHazard && (
+              <div className="absolute inset-0 pointer-events-none z-8 overflow-hidden">
+                {/* 1. Full-bleed road water film & high-velocity spray streaks */}
+                <div 
+                  className="absolute inset-0 opacity-45 mix-blend-screen pointer-events-none"
+                  style={{
+                    backgroundImage: 'repeating-linear-gradient(90deg, rgba(56,189,248,0.28) 0px, rgba(56,189,248,0.28) 12px, transparent 12px, transparent 32px)',
+                    backgroundPosition: `-${(trackScrollX * 1.6) % 32}px 0px`
+                  }}
+                />
+
+                {/* 2. Lane 1 Continuous Hydrodynamic Water Wake Plume (Trailing behind Rider 1) */}
+                <div 
+                  className="absolute top-10 sm:top-14 h-16 sm:h-22 pointer-events-none transition-all duration-300"
+                  style={{
+                    left: 0,
+                    width: `${Math.max(0, p1Pos)}%`
+                  }}
+                >
+                  {/* Expanding water wake plume behind Rider 1 */}
+                  <div className="w-full h-full bg-gradient-to-r from-cyan-500/10 via-cyan-400/30 to-sky-300/60 blur-[1px] rounded-r-full" />
+                  {/* High-speed water churn foam ripples */}
+                  <div 
+                    className="absolute inset-0 opacity-80"
+                    style={{
+                      backgroundImage: 'radial-gradient(ellipse at center, rgba(186,230,253,0.7) 0%, transparent 70%)',
+                      backgroundSize: '36px 14px',
+                      backgroundPosition: `-${(trackScrollX * 1.4) % 36}px 0px`
+                    }}
+                  />
+                  {/* Tire track rut streak on asphalt */}
+                  <div 
+                    className="absolute top-1/2 -translate-y-1/2 inset-x-0 h-1.5 bg-gradient-to-r from-sky-400/20 via-sky-300/45 to-white/60 blur-[0.5px]"
+                    style={{
+                      backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.7) 0px, rgba(255,255,255,0.7) 8px, transparent 8px, transparent 18px)',
+                      backgroundPosition: `-${(trackScrollX * 1.8) % 18}px 0px`
+                    }}
+                  />
+                </div>
+
+                {/* 3. Lane 2 Continuous Hydrodynamic Water Wake Plume (Trailing behind Rider 2) */}
+                <div 
+                  className="absolute bottom-6 sm:bottom-9 h-16 sm:h-22 pointer-events-none transition-all duration-300"
+                  style={{
+                    left: 0,
+                    width: `${Math.max(0, p2Pos)}%`
+                  }}
+                >
+                  {/* Expanding water wake plume behind Rider 2 */}
+                  <div className="w-full h-full bg-gradient-to-r from-rose-500/10 via-sky-400/30 to-sky-300/60 blur-[1px] rounded-r-full" />
+                  {/* High-speed water churn foam ripples */}
+                  <div 
+                    className="absolute inset-0 opacity-80"
+                    style={{
+                      backgroundImage: 'radial-gradient(ellipse at center, rgba(186,230,253,0.7) 0%, transparent 70%)',
+                      backgroundSize: '36px 14px',
+                      backgroundPosition: `-${(trackScrollX * 1.4) % 36}px 0px`
+                    }}
+                  />
+                  {/* Tire track rut streak on asphalt */}
+                  <div 
+                    className="absolute top-1/2 -translate-y-1/2 inset-x-0 h-1.5 bg-gradient-to-r from-sky-400/20 via-sky-300/45 to-white/60 blur-[0.5px]"
+                    style={{
+                      backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.7) 0px, rgba(255,255,255,0.7) 8px, transparent 8px, transparent 18px)',
+                      backgroundPosition: `-${(trackScrollX * 1.8) % 18}px 0px`
+                    }}
+                  />
+                </div>
+
+                {/* 4. Road-Wide Tire Spray Plumes & Puddle Churning Nodes (Full Track Coverage) */}
+                {STABLE_ROAD_TIRE_SPRAYS.map((spray) => (
+                  <div
+                    key={`road-spray-${spray.id}`}
+                    className="absolute flex items-center pointer-events-none"
+                    style={{
+                      left: `${spray.left}%`,
+                      top: `${spray.topPercent}%`,
+                      width: `${spray.width}px`,
+                      height: `${spray.height}px`,
+                      opacity: spray.opacity
+                    }}
+                  >
+                    {/* Slanted high-velocity spray mist streak */}
+                    <div 
+                      className="w-full h-full rounded-full bg-gradient-to-l from-sky-200 via-cyan-400/75 to-transparent blur-[0.5px]"
+                      style={{
+                        animationName: 'roadTireSprayAnim',
+                        animationDuration: `${spray.duration}s`,
+                        animationTimingFunction: 'ease-out',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${spray.delay}s`,
+                        willChange: 'transform, opacity'
+                      }}
+                    />
+                    {/* Fine water spray bead */}
+                    <div 
+                      className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_5px_#38bdf8]"
+                      style={{
+                        animationName: 'rainSplashDroplet',
+                        animationDuration: `${spray.duration}s`,
+                        animationTimingFunction: 'ease-out',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${spray.delay}s`,
+                        willChange: 'transform, opacity'
+                      }}
+                    />
+                  </div>
+                ))}
+
+                {/* 5. Full-Road Rain Splashes & Expanding Water Rings across all lanes */}
+                {STABLE_RAIN_SPLASHES.map((splash) => (
+                  <div
+                    key={`road-splash-ring-${splash.id}`}
+                    className="absolute flex items-center justify-center pointer-events-none"
+                    style={{
+                      left: `${splash.left}%`,
+                      top: `${splash.topPercent}%`,
+                      width: '24px',
+                      height: '10px'
+                    }}
+                  >
+                    {/* Splash expanding water ripple ring */}
+                    <div
+                      className="absolute rounded-full border border-sky-300/80"
+                      style={{
+                        width: '18px',
+                        height: '7px',
+                        animationName: 'rainSplashRing',
+                        animationDuration: `${splash.duration}s`,
+                        animationTimingFunction: 'ease-out',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${splash.delay}s`,
+                        transform: `scale(${splash.scale})`,
+                        willChange: 'transform, opacity'
+                      }}
+                    />
+                    {/* Splash bouncing water droplet beads */}
+                    <div
+                      className="absolute w-1.5 h-1.5 rounded-full bg-cyan-200 shadow-[0_0_3px_#38bdf8]"
+                      style={{
+                        animationName: 'rainSplashDroplet',
+                        animationDuration: `${splash.duration}s`,
+                        animationTimingFunction: 'ease-out',
+                        animationIterationCount: 'infinite',
+                        animationDelay: `${splash.delay}s`,
+                        willChange: 'transform, opacity'
                       }}
                     />
                   </div>
@@ -2256,7 +2593,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
 
                   {/* Drafting Badge */}
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cyan-950/95 border border-cyan-400 text-cyan-200 text-[8px] sm:text-[9px] font-mono font-black px-2 py-0.5 rounded-full shadow-lg whitespace-nowrap animate-bounce">
-                    ðŸ’¨ DRAFTING +15% AERO
+                    💨 DRAFTING +15% AERO
                   </div>
                 </div>
               );
@@ -2474,7 +2811,7 @@ export const RaceAnimationScreen: React.FC<RaceAnimationScreenProps> = ({
             }`}
             title="Tekan Enter atau Spasi untuk lanjut"
           >
-            <span>{phase === 'FINISH_LINE' ? 'LANJUTKAN ðŸ' : 'LEWATI'}</span>
+            <span>{phase === 'FINISH_LINE' ? 'LANJUTKAN 🏁' : 'LEWATI'}</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
